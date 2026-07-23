@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: python
-          image: kevinjcloud/pyapp-gha:e453225
+          image: kevinjcloud/pyapp-gha:43ed04e
           ports:
             - containerPort: 8000
