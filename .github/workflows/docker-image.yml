@@ -23,6 +23,6 @@ jobs:
 
 
     - name: Pushing the docker image
-      run: docker push -u kevinjcloud/pyapp-gha:${GITHUB_SHA::7}
+      run: docker push kevinjcloud/pyapp-gha:${GITHUB_SHA::7}
 
    
