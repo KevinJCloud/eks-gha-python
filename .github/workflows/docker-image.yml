@@ -28,7 +28,7 @@ jobs:
     - name: updating the docker image in deployment yaml file
       run: |
         SHORT_SHA=${GITHUB_SHA::7}
-        yq -i '.spec.template.spec.containers[0].image = "kevinjcloud/pyapp-gha:${GITHUB_SHA::7}"'  ./eks_manifest/deployment.yaml
+        yq -i ".spec.template.spec.containers[0].image = \"kevinjcloud/pyapp-gha:${SHORT_SHA}\""  ./eks_manifest/deployment.yaml
 
     - name: Commit deployment file changes
       run: |
