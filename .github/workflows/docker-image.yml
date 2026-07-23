@@ -21,4 +21,8 @@ jobs:
          username: ${{ vars.DOCKERHUB_USERNAME}}
          password: ${{ secrets.DOCKERHUB_TOKEN}}
 
+
+    - name: Pushing the docker image
+      run: docker push -u kevinjcloud/pyapp-gha:${GITHUB_SHA::7}
+
    
