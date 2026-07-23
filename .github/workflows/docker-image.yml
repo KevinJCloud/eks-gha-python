@@ -30,4 +30,10 @@ jobs:
         SHORT_SHA=${GITHUB_SHA::7}
         yq -i '.spec.template.spec.containers[0].image = "kevinjcloud/pyapp-gha:${GITHUB_SHA::7}"'  ./eks_manifest/deployment.yaml
 
-   
+    - name: Commit deployment file changes
+      run: |
+         git config user.name "github-actions[bot]"
+         git config user.email "github-actions@noreply"
+         git add /eks_manifest/deployment.yaml
+         git commit -m "docker tag updated by gha"
+         git push origin main
