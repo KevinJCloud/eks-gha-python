@@ -16,8 +16,7 @@ spec:
         app: python
     spec:
       containers:
-      - name: python
-        image: kevinjcloud/pyapp-gha:v1
-        ports:
-        - containerPort: 8000
-
+        - name: python
+          image: kevinjcloud/pyapp-gha:${GITHUB_SHA::7}
+          ports:
+            - containerPort: 8000
