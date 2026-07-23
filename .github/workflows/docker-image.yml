@@ -26,6 +26,8 @@ jobs:
       run: docker push kevinjcloud/pyapp-gha:${GITHUB_SHA::7}
 
     - name: updating the docker image in deployment yaml file
-      run: yq -i '.spec.template.spec.containers[0].image = kevinjcloud/pyapp-gha:'"${GITHUB_SHA::7}"'"'  ./eks_manifest/deployment.yaml
+      run: |
+        SHORT_SHA=${GITHUB_SHA::7}
+        yq -i '.spec.template.spec.containers[0].image = "kevinjcloud/pyapp-gha:${GITHUB_SHA::7}"'  ./eks_manifest/deployment.yaml
 
    
