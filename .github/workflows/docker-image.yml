@@ -25,4 +25,7 @@ jobs:
     - name: Pushing the docker image
       run: docker push kevinjcloud/pyapp-gha:${GITHUB_SHA::7}
 
+    - name: updating the docker image in deployment yaml file
+      run: yq --version
+
    
